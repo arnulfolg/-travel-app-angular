@@ -1,0 +1,29 @@
+<main class="main dashboard">
+	<section class="dashboard_explore">
+		<section class="card">
+			<h3>My Places</h3>
+			<p>Look at the places you have been and the places you want to meet</p>
+			<a routerLink="/myplaces" routerLinkActive="router-link-active" >See more</a>
+		</section>
+		<section class="card">
+			<h3>Categories</h3>
+			<p>
+				Browse our places categories, perfect if you want to make a long trip
+			</p>
+			<a routerLink="/categories" routerLinkActive="router-link-active" >See more</a>
+		</section>
+	</section>
+	<section class="dashboard_featured">
+		<h2>Featured Places</h2>
+		<section class="places">
+			<!-- <PlaceCard
+				v-for="item in featuredPlaces"
+				:key="item.place"
+				:title="item.place"
+				:categories="item.categories"
+				:image="item.image"
+			></PlaceCard>
+			<EmptyError v-if="featuredPlaces.length == 0" /> -->
+		</section>
+	</section>
+</main>

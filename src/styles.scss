@@ -21,7 +21,7 @@ html {
 	box-sizing: inherit;
 }
 
-#app {
+app-root {
 	display: grid;
 	grid-template-rows: 100px auto;
 	grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
@@ -33,7 +33,7 @@ html {
 	min-height: 100vh;
 }
 
-.header {
+app-header {
 	grid-area: travel-header;
 }
 

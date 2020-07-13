@@ -5,11 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import { ExploreComponent } from './explore/explore.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { MyPlacesComponent } from './my-places/my-places.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ExploreComponent,
+    CategoriesComponent,
+    MyPlacesComponent
   ],
   imports: [
     BrowserModule,
