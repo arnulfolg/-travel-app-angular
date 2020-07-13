@@ -11,6 +11,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { MyPlacesComponent } from './my-places/my-places.component';
 import { PlaceCardComponent } from './place-card/place-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
+import { CategoryComponent } from './category/category.component';
+import { PlaceComponent } from './place/place.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CategoryCardComponent } from './category-card/category-card.component';
     CategoriesComponent,
     MyPlacesComponent,
     PlaceCardComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    CategoryComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
