@@ -13,6 +13,7 @@ import { PlaceCardComponent } from './place-card/place-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { CategoryComponent } from './category/category.component';
 import { PlaceComponent } from './place/place.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PlaceComponent } from './place/place.component';
     PlaceCardComponent,
     CategoryCardComponent,
     CategoryComponent,
-    PlaceComponent
+    PlaceComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

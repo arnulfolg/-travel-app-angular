@@ -6,13 +6,16 @@ import { HomeComponent } from './home/home.component'
 import { CategoriesComponent } from './categories/categories.component'
 import { CategoryComponent } from './category/category.component'
 import { PlaceComponent } from './place/place.component'
+import { BannerComponent } from './banner/banner.component'
 import { MyPlacesComponent } from './my-places/my-places.component'
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'places', component: ExploreComponent},
-  { path: 'places/place', component: PlaceComponent},
+  { path: 'places/place', component: PlaceComponent, children: [
+     { path: '', component: BannerComponent, outlet:'banner' },
+  ]},
   { path: 'categories', component: CategoriesComponent},
   { path: 'categories/category', component: CategoryComponent},
   { path: 'myplaces', component: MyPlacesComponent}
