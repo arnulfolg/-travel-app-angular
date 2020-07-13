@@ -9,7 +9,7 @@ import { MyPlacesComponent } from './my-places/my-places.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'explore', component: ExploreComponent},
+  { path: 'places', component: ExploreComponent},
   { path: 'categories', component: CategoriesComponent},
   { path: 'myplaces', component: MyPlacesComponent}
 ];

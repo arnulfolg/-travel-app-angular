@@ -9,6 +9,10 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  arrayOne(n: number): any[] {
+    return Array(n);
+  }
+
   ngOnInit(): void {
   }
 

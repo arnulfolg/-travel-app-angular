@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MyPlacesComponent } from './my-places/my-places.component';
+import { PlaceCardComponent } from './place-card/place-card.component';
+import { CategoryCardComponent } from './category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MyPlacesComponent } from './my-places/my-places.component';
     HomeComponent,
     ExploreComponent,
     CategoriesComponent,
-    MyPlacesComponent
+    MyPlacesComponent,
+    PlaceCardComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
