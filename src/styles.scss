@@ -69,7 +69,7 @@ app-header {
 		grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
 	}
 
-	section.banner {
+	app-banner {
 		grid-area: travel-banner;
 	}
 

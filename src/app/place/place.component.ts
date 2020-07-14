@@ -13,7 +13,8 @@ import {
 @Component({
   selector: 'app-place',
   templateUrl: './place.component.html',
-  styleUrls: ['./place.component.scss']
+  styleUrls: ['./place.component.scss'],
+  host: {'class': 'main'}
 })
 export class PlaceComponent implements OnInit {
   

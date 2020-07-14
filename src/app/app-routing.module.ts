@@ -13,9 +13,17 @@ import { MyPlacesComponent } from './my-places/my-places.component'
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'places', component: ExploreComponent},
-  { path: 'places/place', component: PlaceComponent, children: [
-     { path: '', component: BannerComponent, outlet:'banner' },
-  ]},
+  { path: 'places/place', children: [
+        {
+            path: '',
+            component: PlaceComponent
+          },
+          {
+            path: '',
+            outlet: 'banner',
+            component: BannerComponent
+          }
+  ] },
   { path: 'categories', component: CategoriesComponent},
   { path: 'categories/category', component: CategoryComponent},
   { path: 'myplaces', component: MyPlacesComponent}
