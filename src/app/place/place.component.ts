@@ -23,9 +23,31 @@ export class PlaceComponent implements OnInit {
   fasThumbsUp = fasThumbsUp;
   fasThumbsDown = fasThumbsDown;
 
+  userPlaceData = {
+				likeStatus: -1,
+				wantToVisit: false,
+				hadVisited: false
+			}
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleLike(): void {
+			if (this.userPlaceData.likeStatus == 1) {
+				this.userPlaceData.likeStatus = -1
+			} else {
+				this.userPlaceData.likeStatus = 1
+      }
+  }
+
+  toggleDisike(): void {
+			if (this.userPlaceData.likeStatus == 0) {
+				this.userPlaceData.likeStatus = -1
+			} else {
+				this.userPlaceData.likeStatus = 0
+			}
   }
 
 }

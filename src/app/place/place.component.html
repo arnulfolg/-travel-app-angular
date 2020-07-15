@@ -13,15 +13,17 @@
 					<button
 						class="review_thumbs"
 						type="button"
+						(click)="toggleLike()"
 					>
-						<fa-icon [icon]="fasThumbsUp" class="fas"></fa-icon>
+						<fa-icon [icon]="userPlaceData.likeStatus == 1 ? fasThumbsUp: farThumbsUp" [class]="userPlaceData.likeStatus == 1 ? 'fas' : ''"></fa-icon>
 						<span>4.2K</span>
 					</button>
 					<button
 						class="review_thumbs"
 						type="button"
+						(click)="toggleDisike()"
 					>
-						<fa-icon [icon]="farThumbsDown"></fa-icon>
+						<fa-icon [icon]="userPlaceData.likeStatus == 0 ? fasThumbsDown: farThumbsDown" [class]="userPlaceData.likeStatus == 0 ? 'fas' : ''"></fa-icon>
 
 						<span>124</span>
 					</button>
