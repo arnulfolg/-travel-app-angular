@@ -27,6 +27,7 @@ header.travel_header {
 		color: var(--color-white);
 		font-weight: 300;
 		text-decoration: none;
+		cursor: pointer;
 
 		&.router-link-active {
 			font-weight: 600;

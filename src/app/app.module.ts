@@ -15,6 +15,9 @@ import { CategoryComponent } from './category/category.component';
 import { PlaceComponent } from './place/place.component';
 import { BannerComponent } from './banner/banner.component';
 
+import { StoreModule } from '@ngrx/store';
+import { counterReducer, loginReducer } from './counter.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,8 @@ import { BannerComponent } from './banner/banner.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    StoreModule.forRoot({ count: counterReducer, loggedIn: loginReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
