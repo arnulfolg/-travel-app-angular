@@ -16,7 +16,7 @@
 	<section class="dashboard_featured">
 		<h2>Featured Places</h2>
 		<section class="places">
-			<app-place-card *ngFor="let i of arrayOne(5)">
+			<app-place-card *ngFor="let place of featuredPlaces" [place]="place">
 
 			</app-place-card>
 		</section>

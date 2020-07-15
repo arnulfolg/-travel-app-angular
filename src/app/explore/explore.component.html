@@ -3,7 +3,7 @@
 		<h2>Explore places</h2>
 	</section>
 	<section class="explore_list">
-		<app-place-card *ngFor="let i of arrayOne(5)">
+		<app-place-card *ngFor="let place of places" [place]="place">
 		</app-place-card>
 	</section>
 </main>

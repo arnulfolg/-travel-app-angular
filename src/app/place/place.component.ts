@@ -17,7 +17,7 @@ import {
   host: {'class': 'main'}
 })
 export class PlaceComponent implements OnInit {
-  
+
   farThumbsUp = farThumbsUp;
   farThumbsDown = farThumbsDown;
   fasThumbsUp = fasThumbsUp;
