@@ -8,17 +8,7 @@
 	</section>
 	<section class="categories_list">
 	
-			<app-category-card>
-
-			</app-category-card>
-			<app-category-card>
-
-			</app-category-card>
-			<app-category-card>
-
-			</app-category-card>
-			<app-category-card>
-
+			<app-category-card *ngFor="let category of categories" [category]="category">
 			</app-category-card>
 	</section>
 </main>

@@ -4,3 +4,9 @@ export interface IPlaces {
 	image: string,
 	categories: Array<string>
 }
+
+export interface ICategories {
+	name: string,
+	image: string,
+	numPlaces: number
+}

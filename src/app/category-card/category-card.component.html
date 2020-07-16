@@ -1,12 +1,12 @@
 <section class="category_card">
 	<div class="titles">
-		<img src="http://hostalelcascabel.com/img/activiteiten/Logo-pueblos-magicos-01.jpg" alt="" />
-		<h2>pueblo magico</h2>
+		<img [src]="category.image" alt="" />
+		<h2>{{ category.name }}</h2>
 	</div>
 	<p>
 		A "Magical Village" is a place with symbolism, legends, history, important
 		events, festivals, traditions, great food, and fun interactive shopping.
 	</p>
-	<a routerLink="/categories/category" routerLinkActive="router-link-active" >See places</a>
+	<a [routerLink]="'/categories/' + category.name" routerLinkActive="router-link-active" >See places</a>
 
 </section>

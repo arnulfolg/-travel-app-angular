@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
+import { IPlaces } from "./../interfaces";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  featuredPlaces
+  public featuredPlaces: IPlaces[] = []
 
   constructor(private _homeService: HomeService) { }
 

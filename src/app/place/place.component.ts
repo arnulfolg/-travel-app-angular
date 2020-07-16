@@ -9,6 +9,9 @@ import {
   faThumbsDown as fasThumbsDown 
 
 } from '@fortawesome/free-solid-svg-icons';
+import { PlaceService } from "./place.service";
+import { IPlaces } from "src/app/interfaces";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-place',
@@ -27,11 +30,18 @@ export class PlaceComponent implements OnInit {
 				likeStatus: -1,
 				wantToVisit: false,
 				hadVisited: false
-			}
+      }
+      
+  public place : IPlaces
 
-  constructor() { }
+  constructor(private _placeService : PlaceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let placeSelected = this.route.snapshot.params.place
+    this._placeService.getPlace(placeSelected)
+      .subscribe(data => {
+        this.place = data
+      })
   }
 
   toggleLike(): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExploreService } from './explore.service';
+import { IPlaces } from "../interfaces";
 
 @Component({
   selector: 'app-explore',
@@ -9,7 +10,7 @@ import { ExploreService } from './explore.service';
 })
 export class ExploreComponent implements OnInit {
 
-  public places = []
+  public places: IPlaces[] = []
 
   constructor(private _placesService: ExploreService) { }
 

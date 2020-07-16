@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPlaces } from 'src/app/places';
+import { IPlaces } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-place-card',

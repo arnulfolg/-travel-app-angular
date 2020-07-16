@@ -1,10 +1,12 @@
 <article class="main place">
 	<section class="place_content">
-		<h2>San Miguel de Allende</h2>
+		<h2>{{ place.place }}</h2>
 		<p class="tags">
-			<span class="tag">pueblo magico</span>
+			<span class="tag" *ngFor="let tag of place.categories">
+				{{ tag }}
+			</span>
 		</p>
-		<p>High in the cool hills, this colonial gem of cobblestone streets and picturesque churches inspires artists with its color, character and light. Baroque, neoclassical and neogothic mix in the city's buildings, notably at the pink stone 18th-century church on the Plaza Principal. Founded in 1542, the city is a mix of Hispanic and Mesoamerican influences.</p>
+		<p>{{ place.description }}</p>
 	</section>
 	<aside class="place_actions">
 		<form>
