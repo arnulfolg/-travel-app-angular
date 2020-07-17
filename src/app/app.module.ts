@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from "../environments/environment";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +21,8 @@ import { PlaceComponent } from './place/place.component';
 import { BannerComponent } from './banner/banner.component';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer, loginReducer } from './counter.reducer';
+import { loggedInReducer, signInDialogReducer } from './counter.reducer';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +36,18 @@ import { counterReducer, loginReducer } from './counter.reducer';
     CategoryCardComponent,
     CategoryComponent,
     PlaceComponent,
-    BannerComponent
+    BannerComponent,
+    AuthDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StoreModule.forRoot({ count: counterReducer, loggedIn: loginReducer })
+    StoreModule.forRoot({ loggedIn: loggedInReducer, signInDialog: signInDialogReducer }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

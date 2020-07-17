@@ -1,24 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset, signIn, signOut } from './counter.actions';
+import { signIn, signOut, openSignInDialog, closeSignInDialog } from './counter.actions';
 
-export const initialState = 0;
-export const userLoggedIn = false;
+export const loggedIn = false;
+export const signInDialog = false;
 
-const _loginReducer = createReducer(userLoggedIn,
+const _loggedInReducer = createReducer(loggedIn,
   on(signIn, state => true),
   on(signOut, state => false)
 );
 
-const _counterReducer = createReducer(initialState,
-  on(increment, state => state + 1),
-  on(decrement, state => state - 1),
-  on(reset, state => 0),
+const _signInDialogReducer = createReducer(signInDialog,
+  on(openSignInDialog, state => true),
+  on(closeSignInDialog, state => false)
 );
 
-export function loginReducer(state, action) {
-  return _loginReducer(state, action);
+
+export function loggedInReducer(state, action) {
+  return _loggedInReducer(state, action);
 }
 
-export function counterReducer(state, action) {
-  return _counterReducer(state, action);
+export function signInDialogReducer(state, action) {
+  return _signInDialogReducer(state, action);
 }

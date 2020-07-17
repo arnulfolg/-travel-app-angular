@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, signIn, signOut } from '../counter.actions';
+import { signOut, openSignInDialog } from '../counter.actions';
 
 @Component({
   selector: 'app-header',
@@ -10,23 +10,22 @@ import { increment, signIn, signOut } from '../counter.actions';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  count$: Observable<number>;
   loggedIn$: Observable<Boolean>;
 
   faSignInAlt = faSignInAlt;
   faSignOutAlt = faSignOutAlt;
 
-  constructor(private store: Store<{ count: number, loggedIn: Boolean }>) {
-    this.count$ = store.pipe(select('count'));
+  constructor(private store: Store<{ loggedIn: Boolean }>) {
     this.loggedIn$ = store.pipe(select('loggedIn'));
    }
+
+   displayButton:boolean;
 
   ngOnInit(): void {
   }
 
   logIn() {
-    this.store.dispatch(increment());
-    this.store.dispatch(signIn());
+    this.store.dispatch(openSignInDialog());
   }
 
   logOut() {
