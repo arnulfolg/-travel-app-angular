@@ -9,7 +9,7 @@
 		<p>{{ place.description }}</p>
 	</section>
 	<aside class="place_actions">
-		<form>
+		<form [formGroup]="likeForm">
 			<fieldset>
 				<section class="review">
 					<button

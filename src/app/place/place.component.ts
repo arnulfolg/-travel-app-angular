@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { 
   faThumbsUp as farThumbsUp, 
   faThumbsDown as farThumbsDown 
@@ -21,6 +22,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaceComponent implements OnInit {
 
+  likeForm : FormGroup;
+
   farThumbsUp = farThumbsUp;
   farThumbsDown = farThumbsDown;
   fasThumbsUp = fasThumbsUp;
@@ -34,7 +37,7 @@ export class PlaceComponent implements OnInit {
       
   public place : IPlaces
 
-  constructor(private _placeService : PlaceService, private route: ActivatedRoute) { }
+  constructor(private _placeService : PlaceService, private route: ActivatedRoute, private _formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
     let placeSelected = this.route.snapshot.params.place
@@ -42,6 +45,10 @@ export class PlaceComponent implements OnInit {
       .subscribe(data => {
         this.place = data
       })
+    this.likeForm = this._formBuilder.group({
+      wantToVisit: false,
+      hadVisited: false
+    })
   }
 
   toggleLike(): void {
