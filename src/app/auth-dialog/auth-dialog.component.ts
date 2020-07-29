@@ -1,9 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Store, select } from '@ngrx/store';
-import { signIn, closeSignInDialog, signOut } from '../counter.actions';
+import { signIn, closeSignInDialog, signOut, updateUserData, clearUserData } from '../store/counter.actions';
 import { Observable } from 'rxjs';
 import { AuthDialogService } from "./auth-dialog.service";
+import { IUser } from "./../interfaces";
+
+export interface AppState {
+  readonly userInfo: IUser;
+}
 
 @Component({
   selector: 'app-auth-dialog',
@@ -29,12 +34,20 @@ export class AuthDialogComponent implements OnInit {
           if (user) {
           this.store.dispatch(signIn());
 
+          let user_obj: IUser = {
+            uid: user.uid,
+            name: "Example",
+            email: user.email
+          }
+          this.store.dispatch(updateUserData({ user: user_obj }));
+
           this.store.pipe(select('loggedIn')).subscribe(status => {
             status == false ? this.logOut() : ''
           })
         
       } else {
           this.store.dispatch(signOut());
+          this.store.dispatch(clearUserData());
       }
     })
   }

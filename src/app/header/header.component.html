@@ -15,7 +15,7 @@
 		</ul>
 	</nav>
 	<section class="logInModule">
-		<p *ngIf="loggedIn$ | async">example@example.com</p>
+		<p *ngIf="loggedIn$ | async">{{ (userData$ | async).email}}</p>
 		<a *ngIf="loggedIn$ | async; else userLoggedOut" class="header_link" (click)="logOut()">
 			<fa-icon [icon]="faSignOutAlt"></fa-icon>
 			Sign Out
