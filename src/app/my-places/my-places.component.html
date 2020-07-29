@@ -5,8 +5,7 @@
 			visit.
 		</p>
 		<section class="myplaces_list">
-			<app-place-card></app-place-card>
-			<app-place-card></app-place-card>
-			<app-place-card></app-place-card>
+			<app-place-card *ngFor="let place of userPlaces" [place]="place">
+			</app-place-card>
 		</section>
 	</main>
