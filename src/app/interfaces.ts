@@ -17,3 +17,13 @@ export interface IUser {
   email: string,
   name: string
 }
+
+
+export interface IDoc {
+	docid: string,
+	uid: string,
+	pid: string,
+	likeStatus: number,
+	wantToVisit: boolean,
+    hadVisited: boolean
+}

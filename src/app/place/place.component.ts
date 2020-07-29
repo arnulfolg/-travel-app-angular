@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { IPlaces, IUser } from "src/app/interfaces";
+import { IPlaces, IUser, IDoc } from "src/app/interfaces";
 import { PlaceService } from "./place.service";
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -38,11 +38,14 @@ export class PlaceComponent implements OnInit {
 
   public place : IPlaces
   public docid : string = null
+  public userid : string = ""
+  public placeid : string = ""
 
   constructor(private store: Store<{ userData: IUser }>, private _placeService : PlaceService, private route: ActivatedRoute, private _formBuilder : FormBuilder) {}
 
   ngOnInit(): void {
     this.userData$ = this.store.pipe(select('userData'))
+      this.userData$.subscribe(user => this.userid = user.uid)
     let placeSelected = this.route.snapshot.params.place
     this._placeService.getPlace(placeSelected)
       .subscribe(data => {
@@ -52,6 +55,24 @@ export class PlaceComponent implements OnInit {
       wantToVisit: false,
       hadVisited: false
     })
+
+
+    setTimeout(() => this.setDocID() , 1000)
+
+  }
+
+  setDocID(){
+      this._placeService.getUserPlace(this.userid, this.place.id)
+        .subscribe((data: IDoc) => {
+          if(data != undefined) {
+              this.docid = data.docid
+              this.likeStatus = data.likeStatus
+              this.likeForm = this._formBuilder.group({
+                  wantToVisit: data.wantToVisit,
+                  hadVisited: data.hadVisited
+                })
+          }
+        })
   }
 
   toggleLike(): void {
@@ -61,19 +82,16 @@ export class PlaceComponent implements OnInit {
 				this.likeStatus = 1
       }
 
-      let userId : string;
-      this.userData$.subscribe(user => userId = user.uid).unsubscribe()
-
-      let body = JSON.stringify({
+      let body = {
 				docid: this.docid || null,
-				uid: userId,
+				uid: this.userid,
 				pid: this.place.id,
 				likeStatus: this.likeStatus,
 				wantToVisit: this.likeForm.get('wantToVisit').value,
 				hadVisited: this.likeForm.get('hadVisited').value
-			})
+			}
 
-			console.log(body)
+			this._placeService.saveUserPlace(body).subscribe()
   }
 
   toggleDisike(): void {
@@ -82,21 +100,17 @@ export class PlaceComponent implements OnInit {
 			} else {
 				this.likeStatus = 0
       }
-      
 
-      let userId : string;
-      this.userData$.subscribe(user => userId = user.uid).unsubscribe()
-
-      let body = JSON.stringify({
+      let body = {
 				docid: this.docid || null,
-				uid: userId,
+				uid: this.userid,
 				pid: this.place.id,
 				likeStatus: this.likeStatus,
 				wantToVisit: this.likeForm.get('wantToVisit').value,
 				hadVisited: this.likeForm.get('hadVisited').value
-			})
+			}
 
-			console.log(body)
+			this._placeService.saveUserPlace(body).subscribe()
   }
 
 }
