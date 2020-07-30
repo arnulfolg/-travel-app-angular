@@ -1,6 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 import { IUser } from "../interfaces";
 
+export const bannerImage = createAction('[Place Banner] bannerImage',
+	props<{ image: string }>()
+);
+
 export const signIn = createAction('[Auth State] SignIn');
 export const signOut = createAction('[Auth State] SignOut');
 

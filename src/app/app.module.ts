@@ -21,7 +21,7 @@ import { PlaceComponent } from './place/place.component';
 import { BannerComponent } from './banner/banner.component';
 
 import { StoreModule } from '@ngrx/store';
-import { loggedInReducer, signInDialogReducer, updateUserDataReducer } from './store/counter.reducer';
+import { loggedInReducer, signInDialogReducer, updateUserDataReducer, bannerImageReducer } from './store/counter.reducer';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 
 @NgModule({
@@ -44,7 +44,7 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StoreModule.forRoot({ loggedIn: loggedInReducer, signInDialog: signInDialogReducer, userData: updateUserDataReducer }),
+    StoreModule.forRoot({ loggedIn: loggedInReducer, signInDialog: signInDialogReducer, userData: updateUserDataReducer, bannerImg: bannerImageReducer }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ReactiveFormsModule

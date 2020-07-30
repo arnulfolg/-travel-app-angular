@@ -16,6 +16,7 @@ import {
   faThumbsDown as fasThumbsDown 
 
 } from '@fortawesome/free-solid-svg-icons';
+import { bannerImage } from '../store/counter.actions';
 
 
 @Component({
@@ -50,6 +51,7 @@ export class PlaceComponent implements OnInit {
     this._placeService.getPlace(placeSelected)
       .subscribe(data => {
         this.place = data
+        this.store.dispatch(bannerImage({image: data.image}))
       })
     this.likeForm = this._formBuilder.group({
       wantToVisit: false,

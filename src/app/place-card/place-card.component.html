@@ -1,14 +1,14 @@
 <section class="place_card">
 	<picture class="card_image">
-		<img [src]="place.image" alt="" />
+		<img [src]="place?.image" alt="" />
 	</picture>
 	<section class="card_content">
-		<h3>{{ place.place }}</h3>
+		<h3>{{ place?.place }}</h3>
 		<p class="tags">
-			<span class="tag" *ngFor="let tag of place.categories">
+			<span class="tag" *ngFor="let tag of place?.categories">
 				{{ tag }}
 			</span>
 		</p>
-		<a [routerLink]="'/places/' + place.place" routerLinkActive="router-link-active" >See place</a>
+		<a [routerLink]="'/places/' + place?.place" routerLinkActive="router-link-active" >See place</a>
 	</section>
 </section>
