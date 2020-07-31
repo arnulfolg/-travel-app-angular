@@ -27,11 +27,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logIn() {
+  logIn(): void {
     this.store.dispatch(openSignInDialog());
   }
 
-  logOut() {
+  logOut(): void {
     this.store.dispatch(signOut());
   }
 

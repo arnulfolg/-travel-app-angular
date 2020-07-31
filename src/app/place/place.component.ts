@@ -63,7 +63,7 @@ export class PlaceComponent implements OnInit {
 
   }
 
-  setDocID(){
+  setDocID(): void {
       this._placeService.getUserPlace(this.userid, this.place.id)
         .subscribe((data: IDoc) => {
           if (data !== undefined) {

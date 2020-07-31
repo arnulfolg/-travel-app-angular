@@ -25,7 +25,7 @@ export class MyPlacesComponent implements OnInit {
     setTimeout(() => this.getUserPlaces() , 1000);
   }
 
-  getUserPlaces() {
+  getUserPlaces(): void {
     this._myPlacesService.getMyPlaces(this.userid)
       .subscribe(data => {
         this.userPlaces = data;

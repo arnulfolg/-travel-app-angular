@@ -17,7 +17,7 @@ constructor(public afAuth: AngularFireAuth) {
     this.user$ = this.afAuth.authState;
 }
 
-logInWithEmail(value) {
+logInWithEmail(value): Promise<any> {
     return new Promise<any>((resolve, reject) => {
         this.afAuth.signInWithEmailAndPassword(value.email, value.password)
         .then(res => {
@@ -29,7 +29,7 @@ logInWithEmail(value) {
     });
 }
 
-closeSession() {
+closeSession(): void {
     this.afAuth.signOut();
 }
 

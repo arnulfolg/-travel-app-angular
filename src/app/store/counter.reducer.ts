@@ -31,18 +31,18 @@ const _updateUserDataReducer = createReducer(initialUserState,
     on(updateUserData, (state, { user }) => user)
   );
 
-export function bannerImageReducer(state, action) {
+export function bannerImageReducer(state, action): any {
   return _bannerImage(state, action);
 }
 
-export function loggedInReducer(state, action) {
+export function loggedInReducer(state, action): any {
   return _loggedInReducer(state, action);
 }
 
-export function signInDialogReducer(state, action) {
+export function signInDialogReducer(state, action): any {
   return _signInDialogReducer(state, action);
 }
 
-export function updateUserDataReducer(state, action) {
+export function updateUserDataReducer(state, action): any {
   return _updateUserDataReducer(state, action);
 }
