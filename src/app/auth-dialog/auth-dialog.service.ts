@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { User } from 'firebase/app';
 import { Observable } from 'rxjs';
@@ -9,28 +9,28 @@ import { Observable } from 'rxjs';
 })
 export class AuthDialogService {
 
-	user$: Observable<User | null>
+	user$: Observable<User | null>;
 	displayButton = new EventEmitter();
-	button:boolean;
+	button: boolean;
 
-	constructor(public afAuth: AngularFireAuth) { 
-		this.user$ = this.afAuth.authState
+	constructor(public afAuth: AngularFireAuth) {
+		this.user$ = this.afAuth.authState;
 	}
 
 	logInWithEmail(value) {
 		return new Promise<any>((resolve, reject) => {
 			this.afAuth.signInWithEmailAndPassword(value.email, value.password)
 			.then(res => {
-				console.log(res)
-				resolve(res)
+				console.log(res);
+				resolve(res);
 			}, err => {
-				reject(err)
-			})
-		})
+				reject(err);
+			});
+		});
 	}
 
 	closeSession() {
-		this.afAuth.signOut()
+		this.afAuth.signOut();
 	}
 
 }

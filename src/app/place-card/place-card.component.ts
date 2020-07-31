@@ -8,7 +8,7 @@ import { IPlaces } from 'src/app/interfaces';
 })
 export class PlaceCardComponent implements OnInit {
 
-  @Input() place : IPlaces
+  @Input() place: IPlaces;
 
   constructor() { }
 

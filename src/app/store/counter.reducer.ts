@@ -1,18 +1,18 @@
 import { createReducer, on } from '@ngrx/store';
 import { signIn, signOut, openSignInDialog, closeSignInDialog, updateUserData, clearUserData, bannerImage } from './counter.actions';
-import { IUser } from "../interfaces";
+import { IUser } from '../interfaces';
 
 
-export const initialBannerImg : string = "";
-export const initialLoggedIn :boolean = false;
-export const initialSignInDialog :boolean = false;
+export const initialBannerImg = '';
+export const initialLoggedIn = false;
+export const initialSignInDialog = false;
 export const initialUserState: IUser = {
-  uid: "",
-  name: "",
-  email: ""
-}
+  uid: '',
+  name: '',
+  email: ''
+};
 
-const _bannerImage = createReducer(initialBannerImg, 
+const _bannerImage = createReducer(initialBannerImg,
     on(bannerImage, (state, {image}) => image)
   );
 
@@ -44,5 +44,5 @@ export function signInDialogReducer(state, action) {
 }
 
 export function updateUserDataReducer(state, action) {
-  return _updateUserDataReducer(state, action)
+  return _updateUserDataReducer(state, action);
 }

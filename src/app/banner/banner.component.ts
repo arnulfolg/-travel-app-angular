@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class BannerComponent implements OnInit {
 
-  banenrImg$ : Observable<string>
+  banenrImg$: Observable<string>;
 
   constructor(private store: Store<{ bannerImg: string }>) { }
 
   ngOnInit(): void {
-    this.banenrImg$ = this.store.pipe(select('bannerImg'))
+    this.banenrImg$ = this.store.pipe(select('bannerImg'));
   }
 
 }

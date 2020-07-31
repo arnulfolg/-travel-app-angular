@@ -16,6 +16,6 @@ export class AppComponent {
   }
 
   LoginEvent() {
-    console.log("app com - login event")
+    console.log('app com - login event');
   }
 }

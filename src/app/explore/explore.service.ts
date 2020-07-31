@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { IPlaces } from '../interfaces';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ExploreService {
 
-	private _url: string = "http://localhost:5001/travel-app-9b55f/us-central1/getPlaces"
+	private _url: string = environment.apiUrl + 'getPlaces';
 
 	constructor(private http: HttpClient) { }
 
 	getPlaces(): Observable<IPlaces[]> {
-		return this.http.get<IPlaces[]>(this._url)
+		return this.http.get<IPlaces[]>(this._url);
 	}
 
 }

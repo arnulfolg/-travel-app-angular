@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IUser } from "src/app/interfaces";
+import { IUser } from 'src/app/interfaces';
 import { signOut, openSignInDialog } from '../store/counter.actions';
 
 @Component({
@@ -19,10 +19,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(private store: Store<{ loggedIn: Boolean, userData: IUser }>) {
     this.loggedIn$ = store.pipe(select('loggedIn'));
-    this.userData$ = this.store.pipe(select('userData'))
+    this.userData$ = this.store.pipe(select('userData'));
    }
 
-   displayButton:boolean;
+   displayButton: boolean;
 
   ngOnInit(): void {
   }
