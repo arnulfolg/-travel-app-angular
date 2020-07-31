@@ -1,0 +1,54 @@
+<article class="main place">
+	<section class="place_content">
+		<h2>{{ place?.place }}</h2>
+		<p class="tags">
+			<span class="tag" *ngFor="let tag of place?.categories">
+				{{ tag }}
+			</span>
+		</p>
+		<p>{{ place?.description }}</p>
+	</section>
+	<aside class="place_actions">
+		<form [formGroup]="likeForm">
+			<fieldset>
+				<section class="review">
+					<button
+						class="review_thumbs"
+						type="button"
+						(click)="toggleLike()"
+					>
+						<fa-icon [icon]="likeStatus == 1 ? fasThumbsUp: farThumbsUp" [class]="likeStatus == 1 ? 'fas' : ''"></fa-icon>
+						<span>4.2K</span>
+					</button>
+					<button
+						class="review_thumbs"
+						type="button"
+						(click)="toggleDisike()"
+					>
+						<fa-icon [icon]="likeStatus == 0 ? fasThumbsDown: farThumbsDown" [class]="likeStatus == 0 ? 'fas' : ''"></fa-icon>
+
+						<span>124</span>
+					</button>
+				</section>
+				<section class="checkbox">
+					<input
+						type="checkbox"
+						id="wantToVisit"
+						name="wantToVisit"
+						formControlName="wantToVisit"
+					/>
+					<label for="wantToVisit">Want to visit</label>
+				</section>
+				<section class="checkbox">
+					<input
+						type="checkbox"
+						id="hadVisited"
+						name="hadVisited"
+						formControlName="hadVisited"
+					/>
+					<label for="hadVisited">Had visited</label>
+				</section>
+			</fieldset>
+		</form>
+	</aside>
+</article>

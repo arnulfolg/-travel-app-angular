@@ -1,0 +1,29 @@
+	<section class="auth-dialog">
+		<form [formGroup]="myForm">
+			<section class="dialog_header">
+				<h2>Sign In</h2>
+			</section>
+			<section class="dialog_content">
+				<label for="user-name">Username:</label>
+				<input
+					id="user-name"
+					type="string"
+					formControlName="email"
+					placeholder="Email"
+				/>
+				<label for="user-pass">Password:</label>
+				<input
+					id="user-pass"
+					type="password"
+					formControlName="password"
+					placeholder="Password"
+				/>
+			</section>
+			<section class="dialog_actions">
+				<button value="cancel" (click)="closeModal()">Cancel</button>
+				<button class="cta" value="submit" (click)="logIn()">
+					Confirm
+				</button>
+			</section>
+		</form>
+	</section>

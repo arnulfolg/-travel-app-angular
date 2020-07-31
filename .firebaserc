@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "travel-app-9b55f": {
+      "hosting": {
+        "travel-app-angular": [
+          "travel-app-9b55f"
+        ]
+      }
+    }
+  }
+}

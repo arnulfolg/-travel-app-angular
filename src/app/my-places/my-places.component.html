@@ -1,0 +1,11 @@
+	<main class="main myplaces">
+		<h2>My places</h2>
+		<p>
+			A list of all the places you have visited and the places you want to
+			visit.
+		</p>
+		<section class="myplaces_list">
+			<app-place-card *ngFor="let place of userPlaces" [place]="place">
+			</app-place-card>
+		</section>
+	</main>

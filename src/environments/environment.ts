@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:5001/travel-app-9b55f/us-central1/',
+  firebase: {
+      apiKey: 'AIzaSyCx-qm6ofRIZKBGl3Wyd4KrQ5wYADYDljU',
+      authDomain: 'travel-app-9b55f.firebaseapp.com',
+      databaseURL: 'https://travel-app-9b55f.firebaseio.com',
+      projectId: 'travel-app-9b55f',
+      storageBucket: 'travel-app-9b55f.appspot.com',
+      messagingSenderId: '772484090151',
+      appId: '1:772484090151:web:74e01e5fd9a0ac3ba60102',
+      measurementId: 'G-7Z0C19GNB0'
+  }
 };
 
 /*

@@ -1,0 +1,32 @@
+<header class="travel_header">
+	<section>
+		<a routerLink="/" routerLinkActive="router-link-active"><img src="/assets/logo.svg" alt="Travel App" /></a>
+			
+	</section>
+
+	<nav class="header_navigation">
+		<ul>
+			<li>
+				<a routerLink="/places" class="header_link" routerLinkActive="router-link-active" >Explore</a>
+			</li>
+			<li>
+				<a routerLink="/categories" class="header_link" routerLinkActive="router-link-active" >Categories</a>
+			</li>
+		</ul>
+	</nav>
+	<section class="logInModule">
+		<p *ngIf="loggedIn$ | async">{{ (userData$ | async).email}}</p>
+		<a *ngIf="loggedIn$ | async; else userLoggedOut" class="header_link" (click)="logOut()">
+			<fa-icon [icon]="faSignOutAlt"></fa-icon>
+			Sign Out
+		</a>
+		<ng-template #userLoggedOut>
+			<a class="header_link" (click)="logIn()">
+				<fa-icon [icon]="faSignInAlt"></fa-icon>
+				Sign In
+			</a>
+		</ng-template>
+
+		
+	</section>
+</header>

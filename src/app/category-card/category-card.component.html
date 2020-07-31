@@ -1,0 +1,12 @@
+<section class="category_card">
+	<div class="titles">
+		<img [src]="category.image" alt="" />
+		<h2>{{ category.name }}</h2>
+	</div>
+	<p>
+		A "Magical Village" is a place with symbolism, legends, history, important
+		events, festivals, traditions, great food, and fun interactive shopping.
+	</p>
+	<a [routerLink]="'/categories/' + category.name" routerLinkActive="router-link-active" >See places</a>
+
+</section>
