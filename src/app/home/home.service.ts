@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class HomeService {
 
-	private _url: string = environment.apiUrl + 'getFeaturedPlaces';
+    private _url: string = environment.apiUrl + 'getFeaturedPlaces';
 
-	constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-	getFeaturedPlaces(): Observable<IPlaces[]> {
-		return this.http.get<IPlaces[]>(this._url);
-	}
+    getFeaturedPlaces(): Observable<IPlaces[]> {
+        return this.http.get<IPlaces[]>(this._url);
+    }
 
 }

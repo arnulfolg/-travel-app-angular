@@ -44,7 +44,12 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StoreModule.forRoot({ loggedIn: loggedInReducer, signInDialog: signInDialogReducer, userData: updateUserDataReducer, bannerImg: bannerImageReducer }),
+    StoreModule.forRoot({
+      loggedIn: loggedInReducer,
+      signInDialog: signInDialogReducer,
+      userData: updateUserDataReducer,
+      bannerImg: bannerImageReducer
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ReactiveFormsModule

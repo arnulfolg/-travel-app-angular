@@ -18,9 +18,9 @@ export interface AppState {
 export class AuthDialogComponent implements OnInit {
 
   myForm: FormGroup;
-  loggedIn$: Observable<Boolean>;
+  loggedIn$: Observable<boolean>;
 
-  constructor(private store: Store<{ loggedIn: Boolean }>, private _formBuilder: FormBuilder, private _authDialogService: AuthDialogService) {
+  constructor(private store: Store<{ loggedIn: boolean }>, private _formBuilder: FormBuilder, private _authDialogService: AuthDialogService) {
     this.loggedIn$ = store.pipe(select('loggedIn'));
   }
 
@@ -42,7 +42,7 @@ export class AuthDialogComponent implements OnInit {
           this.store.dispatch(updateUserData({ user: user_obj }));
 
           this.store.pipe(select('loggedIn')).subscribe(status => {
-            status == false ? this.logOut() : '';
+            status === false ? this.logOut() : '';
           });
 
       } else {

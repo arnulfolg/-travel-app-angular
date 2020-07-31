@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class CategoriesService {
 
-	private _url: string = environment.apiUrl + 'getTags';
+    private _url: string = environment.apiUrl + 'getTags';
 
-	constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-	getCategories(): Observable<ICategories[]> {
-		return this.http.get<ICategories[]>(this._url);
-	}
+    getCategories(): Observable<ICategories[]> {
+        return this.http.get<ICategories[]>(this._url);
+    }
 
 }

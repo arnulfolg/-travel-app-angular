@@ -5,32 +5,32 @@ import { User } from 'firebase/app';
 import { Observable } from 'rxjs';
 
 @Injectable({
-	providedIn: 'root'
+providedIn: 'root'
 })
 export class AuthDialogService {
 
-	user$: Observable<User | null>;
-	displayButton = new EventEmitter();
-	button: boolean;
+user$: Observable<User | null>;
+displayButton = new EventEmitter();
+button: boolean;
 
-	constructor(public afAuth: AngularFireAuth) {
-		this.user$ = this.afAuth.authState;
-	}
+constructor(public afAuth: AngularFireAuth) {
+    this.user$ = this.afAuth.authState;
+}
 
-	logInWithEmail(value) {
-		return new Promise<any>((resolve, reject) => {
-			this.afAuth.signInWithEmailAndPassword(value.email, value.password)
-			.then(res => {
-				console.log(res);
-				resolve(res);
-			}, err => {
-				reject(err);
-			});
-		});
-	}
+logInWithEmail(value) {
+    return new Promise<any>((resolve, reject) => {
+        this.afAuth.signInWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+            console.log(res);
+            resolve(res);
+        }, err => {
+            reject(err);
+        });
+    });
+}
 
-	closeSession() {
-		this.afAuth.signOut();
-	}
+closeSession() {
+    this.afAuth.signOut();
+}
 
 }

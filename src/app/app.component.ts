@@ -9,13 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'travel-app-angular';
-  signInDialog$: Observable<Boolean>;
+  signInDialog$: Observable<boolean>;
 
-  constructor(private store: Store<{ signInDialog: Boolean }>) {
+  constructor(private store: Store<{ signInDialog: boolean }>) {
     this.signInDialog$ = store.pipe(select('signInDialog'));
-  }
-
-  LoginEvent() {
-    console.log('app com - login event');
   }
 }

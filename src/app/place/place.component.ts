@@ -29,7 +29,7 @@ import { bannerImage } from '../store/counter.actions';
 export class PlaceComponent implements OnInit {
 
   likeForm: FormGroup;
-	likeStatus = -1;
+  likeStatus = -1;
   userData$: Observable<IUser>;
 
   farThumbsUp = farThumbsUp;
@@ -66,7 +66,7 @@ export class PlaceComponent implements OnInit {
   setDocID(){
       this._placeService.getUserPlace(this.userid, this.place.id)
         .subscribe((data: IDoc) => {
-          if (data != undefined) {
+          if (data !== undefined) {
               this.docid = data.docid;
               this.likeStatus = data.likeStatus;
               this.likeForm = this._formBuilder.group({
@@ -78,41 +78,41 @@ export class PlaceComponent implements OnInit {
   }
 
   toggleLike(): void {
-			if (this.likeStatus == 1) {
-				this.likeStatus = -1;
-			} else {
-				this.likeStatus = 1;
+      if (this.likeStatus === 1) {
+        this.likeStatus = -1;
+      } else {
+        this.likeStatus = 1;
       }
 
-   const body = {
-				docid: this.docid || null,
-				uid: this.userid,
-				pid: this.place.id,
-				likeStatus: this.likeStatus,
-				wantToVisit: this.likeForm.get('wantToVisit').value,
-				hadVisited: this.likeForm.get('hadVisited').value
-			};
+      const body = {
+          docid: this.docid || null,
+          uid: this.userid,
+          pid: this.place.id,
+          likeStatus: this.likeStatus,
+          wantToVisit: this.likeForm.get('wantToVisit').value,
+          hadVisited: this.likeForm.get('hadVisited').value
+        };
 
-			this._placeService.saveUserPlace(body).subscribe();
+      this._placeService.saveUserPlace(body).subscribe();
   }
 
   toggleDisike(): void {
-			if (this.likeStatus == 0) {
-				this.likeStatus = -1;
-			} else {
-				this.likeStatus = 0;
+      if (this.likeStatus === 0) {
+        this.likeStatus = -1;
+      } else {
+        this.likeStatus = 0;
       }
 
-   const body = {
-				docid: this.docid || null,
-				uid: this.userid,
-				pid: this.place.id,
-				likeStatus: this.likeStatus,
-				wantToVisit: this.likeForm.get('wantToVisit').value,
-				hadVisited: this.likeForm.get('hadVisited').value
-			};
+      const body = {
+          docid: this.docid || null,
+          uid: this.userid,
+          pid: this.place.id,
+          likeStatus: this.likeStatus,
+          wantToVisit: this.likeForm.get('wantToVisit').value,
+          hadVisited: this.likeForm.get('hadVisited').value
+        };
 
-			this._placeService.saveUserPlace(body).subscribe();
+      this._placeService.saveUserPlace(body).subscribe();
   }
 
 }

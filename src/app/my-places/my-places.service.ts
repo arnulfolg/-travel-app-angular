@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class MyPlacesService {
 
-	private _url_getMyPlaces: string = environment.apiUrl + 'getMyPlaces?uid=';
+    private _url_getMyPlaces: string = environment.apiUrl + 'getMyPlaces?uid=';
 
-	constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-	getMyPlaces(userId: string): Observable<IPlaces[]> {
-		return this.http.get<IPlaces[]>(this._url_getMyPlaces + userId);
-	}
+    getMyPlaces(userId: string): Observable<IPlaces[]> {
+        return this.http.get<IPlaces[]>(this._url_getMyPlaces + userId);
+    }
 
 }

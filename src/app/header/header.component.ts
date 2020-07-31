@@ -11,13 +11,13 @@ import { signOut, openSignInDialog } from '../store/counter.actions';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  loggedIn$: Observable<Boolean>;
+  loggedIn$: Observable<boolean>;
   userData$: Observable<IUser>;
 
   faSignInAlt = faSignInAlt;
   faSignOutAlt = faSignOutAlt;
 
-  constructor(private store: Store<{ loggedIn: Boolean, userData: IUser }>) {
+  constructor(private store: Store<{ loggedIn: boolean, userData: IUser }>) {
     this.loggedIn$ = store.pipe(select('loggedIn'));
     this.userData$ = this.store.pipe(select('userData'));
    }
